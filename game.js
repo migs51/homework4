@@ -1,13 +1,17 @@
+
+
 $(document).ready(function() {
 
     //global variables
     var questions = $("#questions");
     var answers = $("#answers");
+   
 
 
     //click event to start Quiz, timer function and 1st question/answers
     $("#startButton").click(function(){
         timer();
+        getQuestion();
 
     })
 
@@ -36,4 +40,50 @@ $(document).ready(function() {
     }, 1000);
     }
 
-}
+    //function to grab question/answer 
+    function getQuestion(){
+        questions.empty();
+        answers.empty();
+        $("#sBtn").empty();
+        var choiceArray = questionArray.choices[i];
+        //for loop to iterate of answer choices
+        for (var i = 0; i < choiceArray.length; i++){
+            var buttonChoice = choiceArray[i];
+            var newButton = $("<button>");
+            newButton.addClass("choice");
+            newButton.attr("choice");
+            newButton.text(buttonChoice);
+            answers.append(newButton);
+            
+        }
+       //appends questions to the DOM
+        questions.append(questionArray.title);
+
+    
+    //click event for user to select answer choice
+   
+
+    function checkAnswer(){
+        
+        
+       
+        
+        
+    }
+
+    checkAnswer();
+
+
+
+     
+        
+        
+       
+
+
+
+    }
+
+    
+});
+

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <title>Miguel's Coding Quiz</title>
+    <title>Miguel's "The Office" Quiz</title>
 
 
 </head>
@@ -28,29 +28,28 @@
     <div class="row">
         <!--place to append the current question-->
         <!--div to also describe the Quiz and corresponding instructions-->
-        <div class="col-6">
-            <h1>Welcome to Miguel's Quiz!</h1>
+        <div class="col-6" id="questions">
+            <p id="welcomeInstructions"><strong>Welcome to "The Office" Quiz! </strong>Once you click the start button you 
+                will be presented with a series of multiple choice questions.  You have 60 seconds to finish. 
+            You will gain points for every correct answer you choose.  However, for every wrong answer you choose time 
+             bill be deducted from the clock.  Try and beat the high score! </p>
         </div>
-         <!--need a place to append the curre   nt question-->
-        <div class="col-4">
+         <!--need a place to append the current question-->
+        <div class="col-4" id="answers">
+            <div class="row choice" id="A">A</div>      
+            <div class="row choice" id="B">B</div>  
+            <div class="row choice" id="C">C</div>  
+            <div class="row choice" id="D">D</div>            
             Place for answer choices
         </div>
-        <div class="col-"2>
+        <div class="col-"2 id="sBtn">
             <!--start button-->
             <button type="button" class="btn btn-primary" id="startButton">Start</button>
        </div>
     </div>
 
 
-   
 
- 
-
-   
-
-    <!--need a place to append the current question-->
-
-    <!--need a place to append answer choices-->
 
 
     <!--the first question and answer choices need to appear when start button is clicked-->
