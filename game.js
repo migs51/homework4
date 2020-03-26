@@ -6,15 +6,16 @@ $(document).ready(function() {
     var questions = $("#questions");
     var answers = $("#answers");
     var startButton = $("#sBtn");
-    var choiceA = $("#A");
-    var choiceB = $("#B");
-    var choiceC = $("#C");
-    var choiceD = $("#D");
      //timer variables
      var ONE_SECOND = 1000;
      var secondsLeft = 60;
      //Score counter
      var score = 0;
+     //variables used by question grabbers
+     var index = 0;
+     var choicesIndex = 0;
+     var answerIndex =0;
+     var choiceArray = questionsObject[index].choices;
     
    
 
@@ -47,15 +48,16 @@ $(document).ready(function() {
   
    
     
-    var index = 0;
-    var choiceArray = questionsObject[index].choices;
+ 
    
 
-    // function to loop through questions and answers choices
+    // function to grab user question/choices and display to DOM
     function questionGrabber(){
         if (index === questionsObject.length){
             console.log('game is finished')
         }
+        questions.empty();
+        answers.empty();
         var questionDisplay = questionsObject[index].title;
         console.log(questionDisplay);
         questions.append(questionDisplay);
@@ -66,37 +68,52 @@ $(document).ready(function() {
             console.log(buttonDisplay);
             var newButton = $("<button>");
             newButton.addClass("choice");
-            newButton.attr("choice");
+            newButton.val(buttonDisplay);
             newButton.text(buttonDisplay);
             answers.append(newButton);
+            questionsObject[choicesIndex].choices;
+            choicesIndex++;
         }
+        
+
         
       
         
     }
-    //function to grab question/answer 
-    // function getQuestion(){
-    //     var choiceArray = questionArray.choices[i];
-    //     //for loop to iterate of answer choices
-    //     for (var i = 0; i < choiceArray.length; i++){
-            // var buttonChoice = choiceArray[i];
-            // var newButton = $("<button>");
-            // newButton.addClass("choice");
-            // newButton.attr("choice");
-            // newButton.text(buttonChoice);
-            // answers.append(newButton);
-            
-    //     }
-    //    //appends questions to the DOM
-    //     questions.append(questionArray.title);
 
-    
+
     //click event for user to select answer choice
-   
-
-
-
+    $(document).on("click",".choice", function(){
+        var userAnswer = ($(this).text());
+        console.log(userAnswer);
+        var correctAnswer = (questionsObject[answerIndex].answer);
+        answerIndex++;
+        if (userAnswer === correctAnswer){
+            alert("correct");
+        }
+        else {
+            alert("wrong!");
+        }
+        questionGrabber();
+    })
+    
+    // function checkAnswer(){
+    //     var correctAnswer = (questionsObject[answerIndex].answer);
+    //     answerIndex++;
+    //     if (userAnswer === correctAnswer){
+    //         alert("correct");
+    //     }
+    //     else {
+    //         alert("wrong!");
+    //     }
+        
     // }
+
+    // checkAnswer();
+
+
+
+  
 
     
 });
